@@ -8,7 +8,9 @@ import { DMSerifDisplay_400Regular } from '@expo-google-fonts/dm-serif-display'
 
 import theme from './src/theme'
 
-import { SignIn } from './src/screens/SignIn'
+import { Routes } from './src/routes'
+import { Orders } from './src/screens/Orders'
+import { AuthProvider } from './src/hooks/auth'
 
 
 export default function App() {
@@ -24,7 +26,10 @@ export default function App() {
     return (
         <ThemeProvider theme={theme}>
             <StatusBar style='light' translucent backgroundColor='transparent' />
-            <SignIn />
+
+            <AuthProvider>
+                <Routes />
+            </AuthProvider>
         </ThemeProvider>
     )
 }
